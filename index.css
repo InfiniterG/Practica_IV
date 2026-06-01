@@ -1,0 +1,341 @@
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with Global Monda Font */
+body {
+    background-color: #ffffff;
+    font-family: "Monda", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Normal weight base */
+    font-style: normal;
+    color: #000000;
+}
+/* --- REFINED LUXURY INTRO ANIMATION --- */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Deep luxury charcoal to match your branding */
+    background-color: #1a1a1a; 
+    overflow: hidden;
+    /* The entire screen waits 2 seconds, then slides UP elegantly */
+    animation: revealSite 1s cubic-bezier(0.77, 0, 0.175, 1) 2s forwards;
+}
+
+.intro-logo {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: "Monda", sans-serif;
+    color: #d5b97c; /* Your signature gold */
+    letter-spacing: 4px;
+    opacity: 0; 
+    /* Logo fades in, holds, then fades out just before the curtain lifts */
+    animation: logoSequence 1.8s ease-in-out 0.2s forwards;
+}
+
+/* --- INTRO KEYFRAMES --- */
+@keyframes logoSequence {
+    0% { opacity: 0; transform: scale(0.95); }
+    30% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.05); }
+}
+
+@keyframes revealSite {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); } /* Slides up and away */
+}
+
+/* --- HEADER STYLES --- */
+.header-container {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative; 
+    overflow: hidden; /* Prevents the long animated text from causing a horizontal scrollbar */
+}
+
+/* The Full-Width Animated RGB Ticker */
+.header-container::after {
+    content: "SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE";
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 200%; 
+    height: 26px; 
+    
+    /* Text Styling */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    
+    /* RGB Background */
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+    background-size: 50% 100%; 
+    
+    /* Slides the text and the background */
+    animation: marqueeTicker 20s linear infinite; 
+}
+
+/* Ticker Animation Keyframes */
+@keyframes marqueeTicker {
+    0% {
+        transform: translateX(0);
+        background-position: 0% 0;
+    }
+    100% {
+        transform: translateX(-50%); 
+        background-position: 100% 0;
+    }
+}
+
+.top-banner {
+    background-color: #404650;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+.main-content {
+    padding: 40px 50px 0 50px;
+}
+
+.logo {
+    font-size: 64px;
+    font-weight: 700;
+    color: #000000;
+    text-align: left; 
+}
+
+/* --- NAVIGATION --- */
+.nav-menu {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    padding: 40px 20px 40px 20px; 
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 24px;
+    white-space: nowrap; 
+}
+
+.nav-menu a.active {
+    font-weight: 700; /* Bold for active state */
+}
+
+/* --- BANNERS STYLES --- */
+.banners-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: -1px; 
+}
+
+/* --- FEATURES / ICONS SECTION --- */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 100px 50px;
+    background-color: #ffffff;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    stroke: #000000;
+    fill: none;
+}
+
+.feature-item p {
+    font-size: 20px;
+    color: #000000;
+}
+
+/* --- FOOTER STYLES --- */
+.site-footer {
+    background-color: #4B4E55; 
+    color: #000000;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* Footer Left Side */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.footer-logo {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.social-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Footer Right Side */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+.comment-label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.comment-input {
+    width: 100%;
+    height: 150px;
+    background-color: #D9D9D9;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    /* Explicitly inheriting Monda for textareas as browsers often default inputs to system fonts */
+    font-family: inherit; 
+    resize: none;
+}
+
+.comment-input::placeholder {
+    color: #666666;
+}
+
+.comment-input:focus {
+    outline: 2px solid #000000;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablets and smaller laptops */
+@media (max-width: 992px) {
+    .nav-menu {
+        gap: 20px; 
+        padding-top: 30px;
+    }
+
+    .features-section {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 60px 30px;
+    }
+    
+    .site-footer {
+        flex-direction: column;
+        padding: 50px 40px;
+    }
+}
+
+/* Mobile Phones (Landscape & Portrait) */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+    
+    .logo {
+        font-size: 42px;
+    }
+
+    .nav-menu a {
+        font-size: 18px; 
+    }
+
+    .top-banner {
+        font-size: 16px;
+    }
+
+    .features-section {
+        grid-template-columns: 1fr; /* Stack vertically */
+        padding: 40px 20px;
+    }
+    
+    .site-footer {
+        padding: 40px 20px;
+    }
+    
+    .footer-logo {
+        font-size: 36px;
+    }
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 36px;
+    }
+
+    .nav-menu {
+        gap: 15px; 
+    }
+
+    .nav-menu a {
+        font-size: 16px; 
+    }
+}

@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évoque - Femei</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL --- */
+        body {
+            font-family: 'Monda', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        /* --- HEADER LAYOUT & STYLING --- */
+        .header-container {
+            background-color: #ffffff;
+            width: 100%;
+        }
+
+        .top-banner {
+            background-color: #404650;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: flex-start;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 64px;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-container {
+            padding-bottom: 25px;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 24px;
+            transition: color 0.3s ease;
+            white-space: nowrap; 
+        }
+
+        .nav-menu a.active {
+            font-weight: 700;
+        }
+
+        .nav-menu a:hover {
+            color: #d5b97c;
+        }
+
+        /* Bottom RGB Sale Bar */
+        .sale-bar {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 200% 200%;
+            animation: gradientRGB 5s ease infinite;
+            color: #ffffff;
+            padding: 6px 0;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .sale-bar-track {
+            display: flex;
+            white-space: nowrap;
+            width: max-content;
+            animation: scrollSaleText 15s linear infinite;
+        }
+
+        @keyframes scrollSaleText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes gradientRGB {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-overlay {
+            position: absolute;
+            top: 50%;
+            left: 5%; 
+            transform: translateY(-50%);
+            background-color: rgba(229, 230, 225, 0.85);
+            width: 250px; 
+            padding: 40px 30px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-overlay h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #000000;
+            margin-top: 0;
+        }
+
+        .menu-overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-overlay li {
+            margin-bottom: 20px;
+        }
+
+        .menu-overlay a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 18px;
+            transition: opacity 0.2s ease;
+        }
+
+        .menu-overlay a:hover {
+            opacity: 0.6;
+        }
+
+        /* --- FULL WIDTH BANNER --- */
+        .full-width-banner {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .full-width-banner img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+        /* --- SORT CONTAINER --- */
+        .sort-container {
+            text-align: right;
+            padding: 30px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sort-container label {
+            font-size: 16px;
+        }
+
+        .sort-container select {
+            background-color: #333;
+            color: white;
+            padding: 5px 15px;
+            border: none;
+            font-family: inherit;
+            margin-left: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* --- BRANDS & PRODUCTS SECTION --- */
+        .brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        .brand-section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .brand-banner {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            margin-bottom: 50px;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-items: center;
+        }
+
+        /* --- MODIFICĂRI PENTRU DIMENSIUNI SPECIFICE --- */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 292px; 
+        }
+
+        .product-card-image-wrapper {
+            width: 100%;
+            aspect-ratio: 292 / 365; 
+            overflow: hidden;
+            border-radius: 25px; 
+            margin-bottom: 15px;
+        }
+        /* ----------------------------------------------- */
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Removed hover transition */
+        }
+
+        .product-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: #000000;
+        }
+
+        .product-card p.product-name {
+            font-size: 13px;
+            color: #777;
+            margin: 0 0 8px 0;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 14px;
+            color: #000000;
+            margin: 0 0 15px 0;
+        }
+
+        .add-to-cart-btn {
+            background-color: #1a1a1a;
+            color: #d5b97c;
+            border: none;
+            padding: 8px 20px;
+            font-family: 'Monda', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #333;
+        }
+
+        /* --- PROMO BANNERS CARDS --- */
+        .promo-banners {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .promo-card {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .promo-card img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- FOOTER LAYOUT & STYLING --- */
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #45474b;
+            padding: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #d5b97c;
+        }
+
+        .social-text {
+            color: #000000;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: stroke 0.3s ease;
+        }
+
+        .social-icons svg:hover {
+            stroke: #d5b97c;
+        }
+
+        .footer-right {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comment-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comment-input {
+            width: 100%;
+            height: 120px;
+            background-color: #d9d9d9;
+            border: none;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: none;
+            color: #333;
+        }
+
+        .comment-input::placeholder {
+            color: #666;
+        }
+
+        .submit-btn {
+            background-color: #1a1a1a;
+            color: #d5b97c;
+            border: none;
+            padding: 12px 20px;
+            font-family: 'Monda', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #000;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 992px) {
+            .menu-overlay { left: 2%; padding: 30px 20px; width: 200px; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                padding: 30px 20px;
+            }
+            
+            .footer-left {
+                text-align: center;
+                align-items: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+
+            .logo-container {
+                justify-content: center;
+            }
+
+            .hero-section { 
+                display: flex; 
+                flex-direction: column-reverse; 
+            }
+            .menu-overlay { 
+                position: relative; 
+                top: 0; 
+                left: 0; 
+                transform: none; 
+                width: 100%; 
+                background-color: #e5e6e1; 
+                box-shadow: none; 
+            }
+            .sort-container { 
+                padding: 20px; 
+                text-align: center; 
+            }
+            .products-grid { grid-template-columns: 1fr; }
+            .promo-banners { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="top-banner">Gaseste-te pe tine</div>
+        
+        <div class="main-content logo-container">
+            <a href="index.html" class="logo">Évoque</a>
+        </div>
+        
+        <div class="main-content nav-container">
+            <nav class="nav-menu">
+                <a href="femei.html" class="active">Femei</a>
+                <a href="barbati.html">Barbati</a>
+                <a href="unisex.html">Unisex</a>
+                <a href="arab.html">Parfumerie Araba</a>
+                <a href="deluxe.html" >Parfumerie DeLuxe</a>
+                <a href="set.html">Seturi</a>
+            </nav>
+        </div>
+
+        <div class="sale-bar">
+            <div class="sale-bar-track">
+                <span>SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE •&nbsp;</span>
+                <span>SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE •&nbsp;</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <img src="img/banners/main_femei.png" alt="Femei Hero Banner" class="hero-image">
+        
+        <div class="menu-overlay">
+            <h3>Colecție</h3>
+            <ul>
+                <li><a href="#tom-ford">Tom Ford</a></li>
+                <li><a href="#dolce-gabana">Dolce & Gabana</a></li>
+                <li><a href="#chanel">Chanel</a></li>
+                <li><a href="#juliette-has-a-gun">Juliette has a gun</a></li>
+                <li><a href="#yves-sient-lorane">YvesSientLorane</a></li>
+                <li><a href="#kilian">Kilian</a></li>
+                <li><a href="#dior">Dior</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="full-width-banner fade-in-scroll">
+        <img src="img/banners/main_femei_broken.png" alt="Banner Mijloc Femei">
+    </div>
+
+    <div class="sort-container">
+        <label>Sortare dupa</label>
+        <select id="sortSelect">
+            <option value="default">Alege...</option>
+            <option value="asc">Pret crescator</option>
+            <option value="desc">Pret descrescator</option>
+        </select>
+    </div>
+
+    <main class="brands-container">
+        
+        <div class="brand-section" id="tom-ford">
+            <h2 class="brand-title fade-in-scroll">Tom Ford</h2>
+            <img src="img/banners/tom_ford.png" alt="Banner Tom Ford" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/lost_cherry.png" alt="Lost Cherry">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Lost Cherry</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/Unveils.png" alt="Unveils Figue Érotique">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Unveils Figue Érotique</p>
+                    <p class="product-price">1400.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/oud.png" alt="Oud Voyager">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Oud Voyager</p>
+                    <p class="product-price">1300.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/velvet.png" alt="Velvet Orchid Eau de Parfum">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Velvet Orchid Eau de Parfum</p>
+                    <p class="product-price">2000.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/cafe.png" alt="Cafe Rose 2023">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Cafe Rose 2023</p>
+                    <p class="product-price">1560.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/black.png" alt="Black Orchid Parfum">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Black Orchid Parfum</p>
+                    <p class="product-price">1640.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/rose.png" alt="Rose Prick">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Rose Prick</p>
+                    <p class="product-price">1760.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/rosex.png" alt="Rose Exposed">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Rose Exposed</p>
+                    <p class="product-price">1750.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/electric.png" alt="Electric cerry">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Electric cerry</p>
+                    <p class="product-price">1880.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+            
+            <div class="promo-banners fade-in-scroll">
+                <div class="promo-card">
+                    <img src="img/banners/tom_card1.png" alt="Tom Ford Bitter Peach Promo">
+                </div>
+                <div class="promo-card">
+                    <img src="img/banners/tom_card2.png" alt="Tom Ford Electric Cherry Promo">
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+        
+        <div class="brand-section" id="dolce-gabana">
+            <h2 class="brand-title fade-in-scroll">Dolce & Gabana</h2>
+            <img src="img/banners/dolce_gabana.png" alt="Banner Dolce & Gabana" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/doolce_intense.png" alt="Intense">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Intense</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/devotation.png" alt="DEVOTATION">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">DEVOTATION</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/imper.png" alt="Imperatrice">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Imperatrice</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/homme.png" alt="Pour Homme">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Pour Homme</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/lemon.png" alt="Lemon">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Lemon</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/only.png" alt="The only one">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">The only one</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/jasmin.png" alt="Blue Jasmin">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Blue Jasmin</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/summer.png" alt="Light blue summer vibes">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Light blue summer vibes</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dolce/blu.png" alt="Light blue">
+                    </div>
+                    <h4>Dolce & Gabana</h4>
+                    <p class="product-name">Light blue</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+            
+
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="chanel">
+            <h2 class="brand-title fade-in-scroll">Chanel</h2>
+            <img src="img/banners/chanel.png" alt="Banner Chanel" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/chanel/splendid.png" alt="Chanel Chance Eau splendide">
+                    </div>
+                    <h4>Chanel</h4>
+                    <p class="product-name">Chanel Chance Eau splendide</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/chanel/fraiche.png" alt="Chanel Chance Eau fraiche">
+                    </div>
+                    <h4>Chanel</h4>
+                    <p class="product-name">Chanel Chance Eau fraiche</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/chanel/chance.png" alt="Chanel Chance">
+                    </div>
+                    <h4>Chanel</h4>
+                    <p class="product-name">Chanel Chance</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/chanel/1.png" alt="Chanel n.1">
+                    </div>
+                    <h4>Chanel</h4>
+                    <p class="product-name">Chanel n.1</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/chanel/5.png" alt="Chanel n.5">
+                    </div>
+                    <h4>Chanel</h4>
+                    <p class="product-name">Chanel n.5</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/chanel/19.png" alt="Chanel n.19">
+                    </div>
+                    <h4>Chanel</h4>
+                    <p class="product-name">Chanel n.19</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="juliette-has-a-gun">
+            <h2 class="brand-title fade-in-scroll">Juliette has a gun</h2>
+            <img src="img/banners/jhag.png" alt="Banner Juliette has a gun" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/powder.png" alt="Powder Love">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Powder Love</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/nono.png" alt="NOT a parfume">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">NOT a parfume</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/lady.png" alt="Lady Vengeance">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Lady Vengeance</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/fever.png" alt="Lipstik Fever">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Lipstik Fever</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/fantasy.png" alt="Lili fantasy">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Lili fantasy</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/bliss.png" alt="Magnolia Bliss">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Magnolia Bliss</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/ode.png" alt="Ode to dullness">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Ode to dullness</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/vanila.png" alt="Vanilla Vibes">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Vanilla Vibes</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/jhag/ego.png" alt="Ego Stratis">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Ego Stratis</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="yves-sient-lorane">
+            <h2 class="brand-title fade-in-scroll">YvesSientLorane</h2>
+            <img src="img/banners/ysv.png" alt="Banner YvesSientLorane" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/ysv/libre.png" alt="Libre">
+                    </div>
+                    <h4>YvesSientLorane</h4>
+                    <p class="product-name">Libre</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/ysv/vestiar.png" alt="Le Vestiaire">
+                    </div>
+                    <h4>YvesSientLorane</h4>
+                    <p class="product-name">Le Vestiaire</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/ysv/paris.png" alt="Parisienne">
+                    </div>
+                    <h4>YvesSientLorane</h4>
+                    <p class="product-name">Parisienne</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/ysv/manifest.png" alt="Manifesto">
+                    </div>
+                    <h4>YvesSientLorane</h4>
+                    <p class="product-name">Manifesto</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/ysv/loran.png" alt="YvesSientLorane">
+                    </div>
+                    <h4>YvesSientLorane</h4>
+                    <p class="product-name">YvesSientLorane</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/ysv/intens.png" alt="Intensément">
+                    </div>
+                    <h4>YvesSientLorane</h4>
+                    <p class="product-name">Intensément</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="kilian">
+            <h2 class="brand-title fade-in-scroll">Kilian</h2>
+            <img src="img/banners/killian.png" alt="Banner Kilian" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/killian/intoxicated.png" alt="Intoxicated">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Intoxicated</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/killian/girl.png" alt="God girl gone bad">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">God girl gone bad</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/killian/love.png" alt="Love don't be shy">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Love don't be shy</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/killian/angels.png" alt="Angels share">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Angels share</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/killian/woman.png" alt="Woman in gold">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Woman in gold</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/killian/black.png" alt="Black Phantom">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Black Phantom</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="dior">
+            <h2 class="brand-title fade-in-scroll">Dior</h2>
+            <img src="img/banners/dior.png" alt="Banner Dior" class="brand-banner fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dior/miss.png" alt="Miss">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Miss</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dior/jadore.png" alt="Jadore">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Jadore</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dior/addict.png" alt="Addict Glow">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Addict Glow</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dior/purple.png" alt="Addict Purple Glow">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Addict Purple Glow</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dior/gris.png" alt="Gris">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Gris</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/dior/desire.png" alt="Desire">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Desire</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="footer-logo">Évoque</div>
+            <a href="politicy.html" class="footer-link">Politica de securitate</a>
+            <a href="terms.html" class="footer-link">Termeni si conditii</a>
+            
+            <p class="social-text">Urmareste-ne pe retelele de socializare</p>
+            <div class="social-icons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <form class="comment-form" onsubmit="event.preventDefault(); document.querySelector('.status-message').textContent = 'Comentariu trimis!'; document.querySelector('.status-message').style.color = '#d5b97c'; this.reset();">
+                <p class="comment-label">Lasa-ne un comentariu</p>
+                <textarea name="comment_text" class="comment-input" placeholder="Scrie..." required></textarea>
+                <button type="submit" class="submit-btn" style="margin-top: 10px;">Trimite</button>
+                <p class="status-message" style="margin-top: 10px; font-size: 14px;"></p>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-scroll');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <script>
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const sortOrder = this.value;
+            if (sortOrder === 'default') return;
+
+            const brandSections = document.querySelectorAll('.brand-section');
+
+            brandSections.forEach(section => {
+                const grid = section.querySelector('.products-grid');
+                if (!grid) return;
+
+                const cards = Array.from(grid.querySelectorAll('.product-card'));
+
+                cards.sort((a, b) => {
+                    const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(' LEI', '').trim());
+                    const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(' LEI', '').trim());
+
+                    if (sortOrder === 'asc') {
+                        return priceA - priceB;
+                    } else {
+                        return priceB - priceA;
+                    }
+                });
+
+                cards.forEach(card => grid.appendChild(card));
+            });
+        });
+    </script>
+</body>
+</html>

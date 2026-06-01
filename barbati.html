@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évoque - Barbati</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL --- */
+        body {
+            font-family: 'Monda', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        /* --- HEADER LAYOUT & STYLING --- */
+        .header-container {
+            background-color: #ffffff;
+            width: 100%;
+        }
+
+        .top-banner {
+            background-color: #404650;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: flex-start;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 64px;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-container {
+            padding-bottom: 25px;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 24px;
+            transition: color 0.3s ease;
+            white-space: nowrap; 
+        }
+
+        .nav-menu a.active {
+            font-weight: 700;
+        }
+
+        .nav-menu a:hover {
+            color: #d5b97c;
+        }
+
+        /* Bottom RGB Sale Bar */
+        .sale-bar {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 200% 200%;
+            animation: gradientRGB 5s ease infinite;
+            color: #ffffff;
+            padding: 6px 0;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .sale-bar-track {
+            display: flex;
+            white-space: nowrap;
+            width: max-content;
+            animation: scrollSaleText 15s linear infinite;
+        }
+
+        @keyframes scrollSaleText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes gradientRGB {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-overlay {
+            position: absolute;
+            top: 50%;
+            left: 5%; 
+            transform: translateY(-50%);
+            background-color: rgba(229, 230, 225, 0.85);
+            width: 250px; 
+            padding: 40px 30px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-overlay h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #000000;
+            margin-top: 0;
+        }
+
+        .menu-overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-overlay li {
+            margin-bottom: 20px;
+        }
+
+        .menu-overlay a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 18px;
+            transition: opacity 0.2s ease;
+        }
+
+        .menu-overlay a:hover {
+            opacity: 0.6;
+        }
+
+        /* --- FULL WIDTH BANNER --- */
+        .full-width-banner {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .full-width-banner img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+        /* --- SORT CONTAINER --- */
+        .sort-container {
+            text-align: right;
+            padding: 30px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sort-container label {
+            font-size: 16px;
+        }
+
+        .sort-container select {
+            background-color: #333;
+            color: white;
+            padding: 5px 15px;
+            border: none;
+            font-family: inherit;
+            margin-left: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* --- BRANDS & PRODUCTS SECTION --- */
+        .brands-container {
+            max-width: 1320px; /* Lățime ajustată pentru a cuprinde bannerele de ~1280px */
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        .brand-section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* --- DIMENSIUNI SPECIFICE PENTRU BANNERE --- */
+        .brand-banner {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin: 0 auto 50px auto;
+            display: block;
+            border-radius: 15px;
+        }
+        
+        .banner-tomford { max-width: 1280px; aspect-ratio: 1280 / 400; } /* Fallback */
+        .banner-dior   { max-width: 1280px; aspect-ratio: 1280 / 720; }
+        .banner-kilian { max-width: 1284px; aspect-ratio: 1284 / 483; }
+        .banner-ysl    { max-width: 1277px; aspect-ratio: 1277 / 488; }
+        .banner-jhag   { max-width: 1281px; aspect-ratio: 1281 / 361; }
+        .banner-chanel { max-width: 1280px; aspect-ratio: 1280 / 517; }
+        .banner-dg     { max-width: 1280px; aspect-ratio: 1280 / 532; }
+
+        /* --- COLAJE PROMOȚIONALE --- */
+/* --- COLAJ PROMOȚIONALE BARBATI (DIOR) --- */
+        .barbati-collage-banner {
+            width: 100%;
+            max-width: 1280px;
+            margin: 60px auto 40px auto;
+            padding: 0;
+        }
+        .barbati-collage-banner img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1280 / 1274; /* Revine la proporția de 1280x1274 */
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .limited-collage-banner {
+            width: 100%;
+            max-width: 1280px;
+            margin: 60px auto 40px auto;
+            padding: 0;
+        }
+        .limited-collage-banner img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1280 / 713;
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-items: center;
+        }
+
+        /* --- MODIFICĂRI PENTRU DIMENSIUNI SPECIFICE PRODUSE --- */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            min-width: 269px; 
+            max-width: 269px; 
+        }
+
+        .product-card-image-wrapper {
+            width: 100%;
+            min-height: 361px;
+            aspect-ratio: 269 / 361; 
+            overflow: hidden;
+            border-radius: 25px; 
+            margin-bottom: 15px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: #000000;
+        }
+
+        .product-card p.product-name {
+            font-size: 13px;
+            color: #777;
+            margin: 0 0 8px 0;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 14px;
+            color: #000000;
+            margin: 0 0 15px 0;
+        }
+
+        .add-to-cart-btn {
+            background-color: #1a1a1a;
+            color: #d5b97c;
+            border: none;
+            padding: 8px 20px;
+            font-family: 'Monda', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #333;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- FOOTER LAYOUT & STYLING --- */
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #45474b;
+            padding: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #d5b97c;
+        }
+
+        .social-text {
+            color: #000000;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: stroke 0.3s ease;
+        }
+
+        .social-icons svg:hover {
+            stroke: #d5b97c;
+        }
+
+        .footer-right {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comment-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comment-input {
+            width: 100%;
+            height: 120px;
+            background-color: #d9d9d9;
+            border: none;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: none;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        .comment-input::placeholder {
+            color: #666;
+        }
+
+        .submit-btn {
+            background-color: #1a1a1a;
+            color: #d5b97c;
+            border: none;
+            padding: 12px 20px;
+            font-family: 'Monda', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #000;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 992px) {
+            .menu-overlay { left: 2%; padding: 30px 20px; width: 200px; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            /* Reset min-width pe ecrane mici ca să nu iasă din grid */
+            .product-card { min-width: auto; }
+            .product-card-image-wrapper { min-height: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                padding: 30px 20px;
+            }
+            
+            .footer-left {
+                text-align: center;
+                align-items: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+
+            .logo-container {
+                justify-content: center;
+            }
+
+            .hero-section { 
+                display: flex; 
+                flex-direction: column-reverse; 
+            }
+            .menu-overlay { 
+                position: relative; 
+                top: 0; 
+                left: 0; 
+                transform: none; 
+                width: 100%; 
+                background-color: #e5e6e1; 
+                box-shadow: none; 
+            }
+            .sort-container { 
+                padding: 20px; 
+                text-align: center; 
+            }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="top-banner">Gaseste-te pe tine</div>
+        
+        <div class="main-content logo-container">
+            <a href="index.html" class="logo">Évoque</a>
+        </div>
+        
+        <div class="main-content nav-container">
+            <nav class="nav-menu">
+                <a href="femei.html">Femei</a>
+                <a href="barbati.html" class="active">Barbati</a>
+                <a href="unisex.html">Unisex</a>
+                <a href="arab.html">Parfumerie Araba</a>
+                <a href="deluxe.html" >Parfumerie DeLuxe</a>
+                <a href="set.html">Seturi</a>
+            </nav>
+        </div>
+
+        <div class="sale-bar">
+            <div class="sale-bar-track">
+                <span>SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE •&nbsp;</span>
+                <span>SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE •&nbsp;</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <img src="img/banners/main_barbati.png" alt="Barbati Hero Banner" class="hero-image">
+        
+        <div class="menu-overlay">
+            <h3>Colecție</h3>
+            <ul>
+                <li><a href="#tom-ford">Tom Ford</a></li>
+                <li><a href="#dolce-gabana">Dolce & Gabana</a></li>
+                <li><a href="#chanel">Chanel</a></li>
+                <li><a href="#juliette-has-a-gun">Juliette has a gun</a></li>
+                <li><a href="#yves-sient-lorane">YvesSientLorane</a></li>
+                <li><a href="#kilian">Kilian</a></li>
+                <li><a href="#dior">Dior</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="sort-container">
+        <label>Sortare dupa</label>
+        <select id="sortSelect">
+            <option value="default">Alege...</option>
+            <option value="asc">Pret crescator</option>
+            <option value="desc">Pret descrescator</option>
+        </select>
+    </div>
+
+    <main class="brands-container">
+        
+        <div class="brand-section" id="tom-ford">
+            <h2 class="brand-title fade-in-scroll">Tom Ford</h2>
+            <img src="img/banners/tom_ford_barbati_banner.png" alt="Banner Tom Ford Barbati" class="brand-banner banner-tomford fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/tom_ford/ombre_leather.png" alt="Ombre Leather">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Ombre Leather</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/tom_ford/oud_wood.png" alt="Oud Wood">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Oud Wood</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/tom_ford/tobacco_vanille.png" alt="Tobaco Vanille">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Tobaco Vanille</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/tom_ford/vanille_fatale.png" alt="Vanille Fatale">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Vanille Fatale</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/tom_ford/neroli_portofino.png" alt="Neroli Portofino">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Neroli Portofino</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/tom_ford/noir.png" alt="Noir">
+                    </div>
+                    <h4>Tom Ford</h4>
+                    <p class="product-name">Noir</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="dolce-gabana">
+            <h2 class="brand-title fade-in-scroll">Dolce & Gabana</h2>
+            <img src="img/banners/dolce_gabana_barbati_banner.jpg" alt="Banner Dolce & Gabana Barbati" class="brand-banner banner-dg fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dolce_gabana/k.png" alt="K">
+                    </div>
+                    <h4>DOLCE & GABBANA</h4>
+                    <p class="product-name">K</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dolce_gabana/velvet_blue_musk.png" alt="Velvet Blue Musk">
+                    </div>
+                    <h4>DOLCE & GABBANA</h4>
+                    <p class="product-name">Velvet Blue Musk</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dolce_gabana/velvet_tender_oud.png" alt="Velvet Tender Oud">
+                    </div>
+                    <h4>DOLCE & GABBANA</h4>
+                    <p class="product-name">Velvet Tender Oud</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dolce_gabana/the_one.png" alt="The one">
+                    </div>
+                    <h4>DOLCE & GABBANA</h4>
+                    <p class="product-name">The one</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dolce_gabana/fragrance.png" alt="Fragrance">
+                    </div>
+                    <h4>DOLCE & GABBANA</h4>
+                    <p class="product-name">Fragrance</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dolce_gabana/intenso.png" alt="Intenso">
+                    </div>
+                    <h4>DOLCE & GABBANA</h4>
+                    <p class="product-name">Intenso</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="chanel">
+            <h2 class="brand-title fade-in-scroll">Chanel</h2>
+            <img src="img/banners/chanel_barbati_banner.png" alt="Banner Chanel Barbati" class="brand-banner banner-chanel fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/chanel/adults_fresh_bleu.png" alt="Adults Fresh Bleu">
+                    </div>
+                    <h4>CHANEL</h4>
+                    <p class="product-name">Adults Fresh Bleu</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/chanel/egoiste.png" alt="Egoiste">
+                    </div>
+                    <h4>CHANEL</h4>
+                    <p class="product-name">Egoiste</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/chanel/alure_homme_sport.png" alt="Alure HOMME Sport">
+                    </div>
+                    <h4>CHANEL</h4>
+                    <p class="product-name">Alure HOMME Sport</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/chanel/platinum_egoiste.png" alt="Platinum Egoiste">
+                    </div>
+                    <h4>CHANEL</h4>
+                    <p class="product-name">Platinum Egoiste</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/chanel/antaeus_pure_homme.png" alt="Antaeus Pure Homme">
+                    </div>
+                    <h4>CHANEL</h4>
+                    <p class="product-name">Antaeus Pure Homme</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/chanel/alure_homme_blanche.png" alt="Alure HOMME Blanche">
+                    </div>
+                    <h4>CHANEL</h4>
+                    <p class="product-name">Alure HOMME Blanche</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="juliette-has-a-gun">
+            <h2 class="brand-title fade-in-scroll">Juliette has a gun</h2>
+            <img src="img/banners/jhag_barbati_banner.png" alt="Banner Juliette has a gun Barbati" class="brand-banner banner-jhag fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/jhag/ex_vetiver.png" alt="EX Vetiver">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">EX Vetiver</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/jhag/juliette.png" alt="Juliette">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Juliette</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/jhag/pear_inc.png" alt="Pear inc">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Pear inc</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/jhag/into_the_void.png" alt="Into the void">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Into the void</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/jhag/gentlewomen.png" alt="Gentlewomen">
+                    </div>
+                    <h4>Juliette has a gun</h4>
+                    <p class="product-name">Gentlewomen</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/jhag/vengeance_extreme.png" alt="Vengeance Extreme">
+                    </div>
+                    <h4>Juliette Has a Gun</h4>
+                    <p class="product-name">Vengeance Extreme</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="yves-sient-lorane">
+            <h2 class="brand-title fade-in-scroll">YvesSientLorane</h2>
+            <img src="img/banners/ysl_barbati_banner.png" alt="Banner YvesSientLorane Barbati" class="brand-banner banner-ysl fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/ysl/mens_fragrance.png" alt="Men's Fragrance">
+                    </div>
+                    <h4>YvesSaintLaurent</h4>
+                    <p class="product-name">Men's Fragrance</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/ysl/lanuit_de_lhomme.png" alt="Lanuit de L'homme">
+                    </div>
+                    <h4>YvesSaintLaurent</h4>
+                    <p class="product-name">Lanuit de L'homme</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/ysl/myslf_labsolu.png" alt="MYSLF L'Absolu">
+                    </div>
+                    <h4>Yves Saint Laurent</h4>
+                    <p class="product-name">MYSLF L'Absolu</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/ysl/pure_xs.png" alt="Pure XS">
+                    </div>
+                    <h4>YvesSaintLaurent</h4>
+                    <p class="product-name">Pure XS</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/ysl/myslf.png" alt="MYSLF">
+                    </div>
+                    <h4>Yves Saint Laurent</h4>
+                    <p class="product-name">MYSLF</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/ysl/mens_y_elixir.png" alt="Men's Y Elixir Parfum">
+                    </div>
+                    <h4>Yves Saint Laurent</h4>
+                    <p class="product-name">Men's Y Elixir Parfum</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="kilian">
+            <h2 class="brand-title fade-in-scroll">Kilian</h2>
+            <img src="img/banners/killian_barbati_banner.png" alt="Banner Kilian Barbati" class="brand-banner banner-kilian fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/killian/smoking_hot.png" alt="Smoking Hot">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Smoking Hot</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/killian/black_fantom.png" alt="Black Fantom">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Black Fantom</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/killian/back_to_black.png" alt="Back to black">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Back to black</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/killian/moonlight_in_heaven.png" alt="Moonlight in Heaven">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Moonlight in Heaven</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/killian/angels_shares.png" alt="Angel's Shares">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Angel's Shares</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/killian/blue_moon.png" alt="Blue Moon">
+                    </div>
+                    <h4>Kilian</h4>
+                    <p class="product-name">Blue Moon</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="dior">
+            <h2 class="brand-title fade-in-scroll">Dior</h2>
+            <img src="img/banners/dior_barbati_banner.png" alt="Banner Dior Barbati" class="brand-banner banner-dior fade-in-scroll">
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dior/sauvage.png" alt="Sauvage">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Sauvage</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dior/homme_intense.png" alt="Homme Intense">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Homme Intense</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dior/homme.png" alt="Homme">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Homme</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dior/farenheit.png" alt="Farenheit">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Farenheit</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dior/new_look.png" alt="New Look">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">New Look</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/dior/homme_sport.png" alt="Homme Sport">
+                    </div>
+                    <h4>Dior</h4>
+                    <p class="product-name">Homme Sport</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <div class="barbati-collage-banner fade-in-scroll">
+                <img src="img/banners/dior_collage_promo.png" alt="Dior Men Promo Collage">
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+        <div class="brand-section" id="limited-edition">
+            <h2 class="brand-title fade-in-scroll">Limited edition</h2>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/limited/le_beau.png" alt="Gaultier Le beau">
+                    </div>
+                    <h4>Jean Paul</h4>
+                    <p class="product-name">Gaultier Le beau</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/limited/eternity.png" alt="Eternity Men">
+                    </div>
+                    <h4>Nature</h4>
+                    <p class="product-name">Eternity Men</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/limited/gentlemen_only.png" alt="Gentelmen only">
+                    </div>
+                    <h4>Givenchy</h4>
+                    <p class="product-name">Gentelmen only</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/limited/prada_milano.png" alt="Milano">
+                    </div>
+                    <h4>Prada</h4>
+                    <p class="product-name">Milano</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/limited/prada_ocean.png" alt="Ocean">
+                    </div>
+                    <h4>Prada</h4>
+                    <p class="product-name">Ocean</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+
+                <div class="product-card fade-in-scroll">
+                    <div class="product-card-image-wrapper">
+                        <img src="img/products/barbati/limited/polo_blue.png" alt="Blue Parfum">
+                    </div>
+                    <h4>Polo</h4>
+                    <p class="product-name">Blue Parfum</p>
+                    <p class="product-price">1500.00 LEI</p>
+                    <button class="add-to-cart-btn" onclick="alert('Adăugat în coș!')">Adaugă în coș</button>
+                </div>
+            </div>
+
+            <div class="limited-collage-banner fade-in-scroll">
+                <img src="img/banners/limited_collage_promo.png" alt="Limited Edition Promo Collage">
+            </div>
+
+            <a href="#" class="back-link">Inapoi &larr;</a>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="footer-logo">Évoque</div>
+            <a href="politicy.html" class="footer-link">Politica de securitate</a>
+            <a href="terms.html" class="footer-link">Termeni si conditii</a>
+            
+            <p class="social-text">Urmareste-ne pe retelele de socializare</p>
+            <div class="social-icons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <form class="comment-form" onsubmit="event.preventDefault(); document.querySelector('.status-message').textContent = 'Comentariu trimis!'; document.querySelector('.status-message').style.color = '#d5b97c'; this.reset();">
+                <p class="comment-label">Lasa-ne un comentariu</p>
+                <textarea name="comment_text" class="comment-input" placeholder="Scrie..." required></textarea>
+                <button type="submit" class="submit-btn" style="margin-top: 10px;">Trimite</button>
+                <p class="status-message" style="margin-top: 10px; font-size: 14px;"></p>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-scroll');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <script>
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const sortOrder = this.value;
+            if (sortOrder === 'default') return;
+
+            const brandSections = document.querySelectorAll('.brand-section');
+
+            brandSections.forEach(section => {
+                const grid = section.querySelector('.products-grid');
+                if (!grid) return;
+
+                const cards = Array.from(grid.querySelectorAll('.product-card'));
+
+                cards.sort((a, b) => {
+                    const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(' LEI', '').trim());
+                    const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(' LEI', '').trim());
+
+                    if (sortOrder === 'asc') {
+                        return priceA - priceB;
+                    } else {
+                        return priceB - priceA;
+                    }
+                });
+
+                cards.forEach(card => grid.appendChild(card));
+            });
+        });
+    </script>
+</body>
+</html>

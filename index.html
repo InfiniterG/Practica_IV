@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évoque - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="intro-overlay">
+        <div class="intro-logo">Évoque</div>
+    </div>
+
+    <script>
+        // Removes the overlay after 3.2 seconds
+        setTimeout(() => {
+            const overlay = document.getElementById('intro-overlay');
+            if (overlay) overlay.remove();
+        }, 3200);
+    </script>
+    <header class="header-container">
+        <div class="top-banner">Gaseste-te pe tine</div>
+        <div class="main-content">
+            <div class="logo">Évoque</div>
+            
+            <nav class="nav-menu">
+              <a href="femei.html">Femei</a>
+                <a href="barbati.html">Barbati</a>
+                <a href="unisex.html">Unisex</a>
+                <a href="arab.html">Parfumerie Araba</a>
+                <a href="deluxe.html">Parfumerie DeLuxe</a>
+                <a href="set.html">Seturi</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="banners-container">
+        <img src="img/1.png" alt="Banner 1" class="banner-img">
+        <img src="img/2.png" alt="Banner 2" class="banner-img">
+        <img src="img/3.png" alt="Banner 3" class="banner-img">
+        <img src="img/4.png" alt="Banner 4" class="banner-img">
+        <img src="img/5.png" alt="Banner 5" class="banner-img">
+        <img src="img/6.png" alt="Banner 6" class="banner-img">
+        <img src="img/7.png" alt="Banner 7" class="banner-img">
+        <img src="img/8.png" alt="Banner 8" class="banner-img">
+    </main>
+
+<section class="features-section">
+        <a href="about.html" class="feature-item" style="text-decoration: none; color: inherit;">
+            <img src="img/icon/info.png" alt="Info Icon" class="feature-icon">
+            <p>Despre noi</p>
+        </a>
+        <a href="promo.html" class="feature-item" style="text-decoration: none; color: inherit;">
+            <img src="img/icon/promo.png" alt="Promo Icon" class="feature-icon">
+            <p>Promotii</p>
+        </a>
+        <a href="delivery.html" class="feature-item" style="text-decoration: none; color: inherit;">
+            <img src="img/icon/delivery.png" alt="Delivery Icon" class="feature-icon">
+            <p>Livrare si achitare</p>
+        </a>
+        <a href="contact.html" class="feature-item" style="text-decoration: none; color: inherit;">
+            <img src="img/icon/contact.png" alt="Contact Icon" class="feature-icon">
+            <p>Contacte</p>
+        </a>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="footer-logo">Évoque</div>
+            <a href="politicy.html" class="footer-link">Politica de securitate</a>
+            <a href="terms.html" class="footer-link">Termeni si conditii</a>
+            
+            <p class="social-text">Urmareste-ne pe retelele de socializare</p>
+            <div class="social-icons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg>
+            </div>
+        </div>
+        
+        <div class="footer-right">
+            <label for="comment-box" class="comment-label">Lasa-ne un comentariu</label>
+            <textarea id="comment-box" class="comment-input" placeholder="Scrie..."></textarea>
+        </div>
+    </footer>
+
+</body>
+</html>

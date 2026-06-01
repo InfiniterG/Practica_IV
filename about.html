@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évoque - Despre noi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL --- */
+        body {
+            font-family: 'Monda', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        /* --- HEADER LAYOUT & STYLING --- */
+        .header-container {
+            background-color: #ffffff;
+            width: 100%;
+        }
+
+        .top-banner {
+            background-color: #404650;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: flex-start;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 64px;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-container {
+            padding-bottom: 25px;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 24px;
+            transition: color 0.3s ease;
+            white-space: nowrap; 
+        }
+
+        .nav-menu a.active {
+            font-weight: 700;
+        }
+
+        .nav-menu a:hover {
+            color: #d5b97c;
+        }
+
+        /* Bottom RGB Sale Bar */
+        .sale-bar {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 200% 200%;
+            animation: gradientRGB 5s ease infinite;
+            color: #ffffff;
+            padding: 6px 0;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .sale-bar-track {
+            display: flex;
+            white-space: nowrap;
+            width: max-content;
+            animation: scrollSaleText 15s linear infinite;
+        }
+
+        @keyframes scrollSaleText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes gradientRGB {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- ABOUT US CONTENT STYLING --- */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 50vh;
+        }
+
+        .about-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 40px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* --- FOOTER LAYOUT & STYLING --- */
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #45474b;
+            padding: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #d5b97c;
+        }
+
+        .social-text {
+            color: #000000;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: stroke 0.3s ease;
+        }
+
+        .social-icons svg:hover {
+            stroke: #d5b97c;
+        }
+
+        .footer-right {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comment-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comment-input {
+            width: 100%;
+            height: 120px;
+            background-color: #d9d9d9;
+            border: none;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: none;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        .comment-input::placeholder {
+            color: #666;
+        }
+
+        .submit-btn {
+            background-color: #1a1a1a;
+            color: #d5b97c;
+            border: none;
+            padding: 12px 20px;
+            font-family: 'Monda', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #000;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                padding: 30px 20px;
+            }
+            
+            .footer-left {
+                text-align: center;
+                align-items: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+
+            .logo-container {
+                justify-content: center;
+            }
+        }
+        
+        /* --- ANIMATIONS --- */
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* --- ABOUT US CONTENT STYLING --- */
+        .about-page-container {
+            max-width: 900px; /* Păstrează textul ușor de citit */
+            margin: 0 auto;
+            padding: 60px 20px 100px 20px;
+            color: #000000;
+        }
+
+        .about-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .about-title-wrapper h2 {
+            font-size: 32px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .about-icon {
+            font-family: 'Times New Roman', Times, serif; /* Iconița 'i' din imagine */
+            font-size: 42px;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 1;
+        }
+
+        .about-item {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .about-image-wrapper {
+            flex: 0 0 250px; /* Lățime fixă pentru imagini */
+            height: 250px;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asigură că imaginea umple pătratul fără să se deformeze */
+        }
+
+        .about-text-content {
+            flex: 1;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            .about-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .about-image-wrapper {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                aspect-ratio: 1; /* Păstrează proporția pătrată pe telefon */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="top-banner">Gaseste-te pe tine</div>
+        
+        <div class="main-content logo-container">
+            <a href="index.html" class="logo">Évoque</a>
+        </div>
+        
+        <div class="main-content nav-container">
+            <nav class="nav-menu">
+                <a href="femei.html">Femei</a>
+                <a href="barbati.html">Barbati</a>
+                <a href="unisex.html">Unisex</a>
+                <a href="arab.html">Parfumerie Araba</a>
+                <a href="deluxe.html">Parfumerie DeLuxe</a>
+                <a href="set.html">Seturi</a>
+            </nav>
+        </div>
+
+        <div class="sale-bar">
+            <div class="sale-bar-track">
+                <span>SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE •&nbsp;</span>
+                <span>SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE • SALE •&nbsp;</span>
+            </div>
+        </div>
+    </header>
+
+<main>
+        <section class="about-page-container fade-in-scroll">
+            
+            <!-- Titlu și Iconița 'i' -->
+            <div class="about-title-wrapper">
+                <h2>Despre noi</h2>
+                <div class="about-icon">i</div>
+            </div>
+
+            <!-- Paragraful 1 -->
+            <div class="about-item fade-in-scroll">
+                <div class="about-image-wrapper">
+                    <img src="img/about/about_1.png" alt="Evoque Eleganta">
+                </div>
+                <div class="about-text-content">
+                    Évoque a fost creat din pasiunea pentru eleganță, rafinament și parfumuri de lux. Brandul nostru a apărut cu scopul de a oferi parfumuri atent selecționate, inspirate de stilul modern și sofisticat.
+                </div>
+            </div>
+
+            <!-- Paragraful 2 -->
+            <div class="about-item fade-in-scroll">
+                <div class="about-image-wrapper">
+                    <img src="img/about/about_2.png" alt="Evoque Colectii">
+                </div>
+                <div class="about-text-content">
+                    Credem că fiecare parfum spune o poveste și reflectă personalitatea celui care îl poartă. De aceea, colecțiile Évoque combină arome intense, delicate și memorabile, potrivite pentru orice stil și moment.
+                </div>
+            </div>
+
+            <!-- Paragraful 3 -->
+            <div class="about-item fade-in-scroll">
+                <div class="about-image-wrapper">
+                    <img src="img/about/about_3.png" alt="Evoque Experienta Premium">
+                </div>
+                <div class="about-text-content">
+                    Misiunea noastră este să oferim clienților o experiență premium, produse de calitate și un univers al parfumurilor unde luxul și frumusețea se întâlnesc.
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="footer-logo">Évoque</div>
+            <a href="politicy.html" class="footer-link">Politica de securitate</a>
+            <a href="terms.html" class="footer-link">Termeni si conditii</a>
+            
+            <p class="social-text">Urmareste-ne pe retelele de socializare</p>
+            <div class="social-icons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <form class="comment-form" onsubmit="event.preventDefault(); document.querySelector('.status-message').textContent = 'Comentariu trimis!'; document.querySelector('.status-message').style.color = '#d5b97c'; this.reset();">
+                <p class="comment-label">Lasa-ne un comentariu</p>
+                <textarea name="comment_text" class="comment-input" placeholder="Scrie..." required></textarea>
+                <button type="submit" class="submit-btn" style="margin-top: 10px;">Trimite</button>
+                <p class="status-message" style="margin-top: 10px; font-size: 14px;"></p>
+            </form>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PENTRU ANIMATII SCROLL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-scroll');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
